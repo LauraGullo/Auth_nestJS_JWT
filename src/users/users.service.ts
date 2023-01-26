@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Role } from './role.enum';
 
 // This should be a real class/interface representing a user entity
 export type User = any;
@@ -10,7 +11,8 @@ export class UsersService {
     {
       userId: 1,
       username: 'john',
-      password: 'changeme',
+      password: 'changeme',  
+      roles: 'admin',    
     },
     {
       userId: 2,
@@ -23,4 +25,8 @@ export class UsersService {
     return this.users.find(user => user.username === username);
   }
   
+  getUsers():User[]{
+    return this.users;
+  }
+
 }
